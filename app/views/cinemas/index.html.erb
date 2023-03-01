@@ -1,0 +1,26 @@
+<h1>Cinemas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @cinemas.each do |cinema| %>
+      <tr>
+        <td><%= cinema.name %></td>
+        <td><%= link_to 'Show', cinema %></td>
+        <td><%= link_to 'Edit', edit_cinema_path(cinema) %></td>
+        <td><%= button_to 'Delete', cinema, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Cinema', new_cinema_path %>
+<%= link_to 'Account Create', new_cinema_user_path(@cinema) %>
+
+

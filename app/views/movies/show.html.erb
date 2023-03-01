@@ -1,0 +1,21 @@
+<%= @movie.title %>
+
+<%= @movie.description %>
+
+<% if @timeslots.any? %>
+  <h2>Timeslots</h2>
+  <% @timeslots.each do |timeslot| %>
+    <h3><%= timeslot.start_time %> - <%= timeslot.end_time %></h3>
+    <% if timeslot.seats_booked >= 10 %>
+      <p>All seats are booked for this timeslot</p>
+    <% else %>
+      <%= button_to "Book Seats", cinema_timeslot_bookings_path(@cinema, timeslot), method: :post %>
+    <% end %>
+  <% end %>
+<% else %>
+  <p>No timeslots available for this movie</p>
+<% end %>
+
+<%= link_to 'Edit (ADMIN)', edit_cinema_movie_path(@cinema, @movie) %> |
+<%= link_to 'Back', cinema_path(@cinema) %> |
+<%= link_to 'Time Slots (ADMIN)', cinema_timeslots_path(@cinema) %>

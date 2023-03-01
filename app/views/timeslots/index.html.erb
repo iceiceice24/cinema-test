@@ -1,0 +1,33 @@
+<h1>Timeslots</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Movie</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @timeslots.each do |timeslot| %>
+      <tr>
+        <td><%= timeslot.movie.title %></td>
+        <td><%= timeslot.start_time %></td>
+        <td><%= timeslot.end_time %></td>
+        <td><%= link_to 'Show', cinema_timeslot_path(@cinema, timeslot) %></td>
+        <td><%= link_to 'Edit', edit_cinema_timeslot_path(@cinema, timeslot) %></td>
+        <td><%= button_to 'Delete', [@cinema, timeslot], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Timeslot', new_cinema_timeslot_path %>
+<%= link_to 'Back', cinema_path(@cinema) %> |
+
+

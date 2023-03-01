@@ -1,0 +1,18 @@
+<p>
+  <strong>Movie:</strong>
+  <%= @timeslot.movie.title %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @timeslot.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @timeslot.end_time %>
+</p>
+
+
+<%= link_to 'Edit (ADMIN)', edit_cinema_timeslot_path %> |
+<%= link_to 'Back (ADMIN)', cinema_timeslots_path %>

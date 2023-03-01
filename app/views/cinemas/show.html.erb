@@ -1,0 +1,33 @@
+<h1><%= @cinema.name %></h1>
+
+<h2>Movies</h2>
+
+<% if @movies.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% @movies.each do |movie| %>
+        <tr>
+          <td><%= movie.title %></td>
+          <td><%= movie.description %></td>
+          <td><%= link_to 'Show', cinema_movie_path(@cinema, movie) %></td>
+          <td><%= link_to 'Edit (ADMIN)', edit_cinema_movie_path(movie) %></td>
+          <td><%= button_to 'Delete (ADMIN)', cinema_movie_path(@cinema, movie), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No movies found.</p>
+<% end %>
+
+<%= link_to 'New Movie', new_cinema_movie_path(@cinema) %>
+<%= link_to 'Back', cinemas_path(@cinema) %>
+

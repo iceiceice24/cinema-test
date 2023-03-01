@@ -1,0 +1,27 @@
+<%# <h1>Movies</h1>
+
+<%= link_to "New Movie", new_cinema_movie_path(@cinema) 
+<td><%= link_to 'Back', cinema_path(@cinema) </td>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movies.each do |movie| 
+      <tr>
+        <td><%= movie.title </td>
+        <td><%= movie.description </td>
+        <td><%= link_to 'Time Slots', cinema_timeslots_path(@cinema) </td>
+        <td><%= button_to 'Destroy', cinema_movie_path(@cinema, movie), method: :delete, data: { confirm: 'Are you sure?' } </td>
+        
+        
+      </tr>
+    <% end 
+  </tbody>
+</table> %>
