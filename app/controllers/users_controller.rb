@@ -12,12 +12,17 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
       
         if @user.save
-          redirect_to cinema_movies_path, notice: 'User was successfully created.'
+          session[:user_id] = @user.id
+          redirect_to user_path(@user)
         else
-          render :new
+          redirect_to @user
         end
       end
       
+      def show
+        @user = User.find(params[:id])
+      end
+
     private
   
     def user_params

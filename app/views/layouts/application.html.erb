@@ -19,7 +19,7 @@
     <p>Logged in as <%= current_user.email %></p>
     <%= link_to "Logout", cinema_logout_path, method: :delete %>
   <% else %>
-    <%= link_to "Login", new_cinema_session_path(@cinema) %>
+     <%= link_to 'Login', new_cinema_session_path(cinema_id: @cinema.id) %>
   <% end %>
 
   <%= yield %>

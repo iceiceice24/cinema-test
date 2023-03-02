@@ -10,3 +10,8 @@ TimeSlot.create(start_time: "10:00am", end_time: "12:00pm")
 TimeSlot.create(start_time: "2:00pm", end_time: "4:00pm")
 TimeSlot.create(start_time: "6:00pm", end_time: "8:00pm")
 TimeSlot.create(start_time: "10:00pm", end_time: "12:00am")
+
+User.create!(
+  email: 'default@example.com',
+  password: 'password'
+)
