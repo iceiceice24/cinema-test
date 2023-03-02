@@ -11,9 +11,18 @@
   </head>
 
   <body>
-    <%= yield %>
+  <% if flash[:notice] %>
+    <p><%= flash[:notice] %></p>
+  <% end %>
 
-    <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-  </body>
+  <% if logged_in? %>
+    <p>Logged in as <%= current_user.email %></p>
+    <%= link_to "Logout", cinema_logout_path, method: :delete %>
+  <% else %>
+    <%= link_to "Login", new_cinema_session_path(@cinema) %>
+  <% end %>
+
+  <%= yield %>
+</body>
+
 </html>

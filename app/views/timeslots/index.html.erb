@@ -17,7 +17,6 @@
         <td><%= timeslot.start_time %></td>
         <td><%= timeslot.end_time %></td>
         <td><%= link_to 'Show', cinema_timeslot_path(@cinema, timeslot) %></td>
-        <td><%= link_to 'Edit', edit_cinema_timeslot_path(@cinema, timeslot) %></td>
         <td><%= button_to 'Delete', [@cinema, timeslot], method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
       </tr>
